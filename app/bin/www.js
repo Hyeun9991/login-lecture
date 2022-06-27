@@ -4,8 +4,9 @@ const app = require('../app');
 
 const PORT = 3000;
 
-app.listen(PORT, ()=> {
+app.listen(PORT, () => {
   console.log('서버 가동');
 });
 
 // app.listen() 모듈화
+// 서버 실행

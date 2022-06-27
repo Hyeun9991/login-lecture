@@ -1,7 +1,7 @@
 'use strict';
 
 const id = document.querySelector('#id'),
-  password = document.querySelector('#password'),
+  psword = document.querySelector('#psword'),
   loginBtn = document.querySelector('button');
 
 loginBtn.addEventListener('click', login);
@@ -9,15 +9,17 @@ loginBtn.addEventListener('click', login);
 function login() {
   const req = {
     id: id.value,
-    password: password.value,
+    psword: psword.value,
   };
 
   fetch('/login', {
-    method: "POST",
-    headers: { // 전달 데이터가 json형태라는 걸 알려주기
-      "Content-Type": "application/json" // 데이터 타입 명시
+    method: 'POST',
+    headers: {
+      // 전달 데이터 타입 알려주기
+      'Content-Type': 'application/json',
     },
-    body: JSON.stringify(req), // 문자열로
-  });
+    body: JSON.stringify(req), // json파일을 문자열 바꿔서 전달 (데이터 크기 절약)
+  })
+    .then((res) => res.json())
+    .then((res) => console.log(res));
 }
-
