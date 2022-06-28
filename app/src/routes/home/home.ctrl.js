@@ -9,7 +9,7 @@ const output = {
   login: (req, res) => {
     res.render('home/login');
   },
-  register: (req, res) => {
+  register: (req, res) => { 
     res.render('home/register');
   },
 };
@@ -40,4 +40,4 @@ module.exports = {
   3.json형태로 클라이언트에게 전달
 */
 
-// 컨트롤러 분리
+// 컨트롤러

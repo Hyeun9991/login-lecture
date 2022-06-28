@@ -12,4 +12,4 @@ router.post('/login', ctrl.process.login);
 
 module.exports = router;
 
-// 라우팅 분리하기 / 라우터
+// 라우팅 
