@@ -1,6 +1,6 @@
 'use strict';
 
-const UserStorage = require('../../models/UserStorage');
+const User = require('../../models/User');
 
 const output = {
   home: (req, res) => {
@@ -13,22 +13,8 @@ const output = {
 
 const process = {
   login: (req, res) => {
-    const id = req.body.id,
-      psword = req.body.psword;
-
-    const users = UserStorage.getUsers('id','psword');
-
-    const response = {};
-    if (users.id.includes(id)) { // 입력값 id가 users에 있다면
-      const idx = users.id.indexOf(id); 
-      if (users.psword[idx] === psword) { // 입력값 psword와 users psword와 비교
-        response.success = true;
-        return res.json(response);
-      }
-    }
-
-    response.success = false;
-    response.msg = '로그인에 실패했습니다.';
+    const user = new User(req.body);
+    const response = user.login();
     return res.json(response);
   },
 };
@@ -38,4 +24,18 @@ module.exports = {
   process,
 };
 
+/* output
+  ejs파일을 랜더링
+*/ 
+
+/* process
+  1. User class를 클라이언트가 전달한 req.body를 넣어서 인스턴스
+  
+  2. user(req.body).login() 메서드 실행 
+    response(success 여부)를 User에서 전달(return) 받음
+
+  3.json형태로 클라이언트에게 전달
+*/ 
+
 // 컨트롤러 분리
+

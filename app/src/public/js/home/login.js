@@ -32,3 +32,5 @@ function login() {
       console.error('로그인 중 에러 발생');
     });
 }
+
+// 프론트 js

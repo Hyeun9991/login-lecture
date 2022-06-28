@@ -9,4 +9,4 @@ app.listen(PORT, () => {
 });
 
 // app.listen() 모듈화
-// 서버 실행
+// 서버 실행 파일
