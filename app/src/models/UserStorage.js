@@ -33,6 +33,14 @@ class UserStorage {
 
     return userInfo
   }
+
+  static save(userInfo) {
+    const users = this.#users;
+    users.id.push(userInfo.id);
+    users.name.push(userInfo.name);
+    users.psword.push(userInfo.psword);
+    return { success: true };
+  }
 }
 
 module.exports = UserStorage;
@@ -54,3 +62,8 @@ module.exports = UserStorage;
     return newUser
     { id: 'test01', psword: '1234', name: '르네상스' }
 */    
+
+/* save
+  클라이언트에서 데이터를 전달하면 users obj안에 해당 데이터들이 저장되야함
+  => 새로 작성된 회원가입 데이터들이 서버를 껏다 키면 사라짐 (저장이 안됨)
+*/ 
