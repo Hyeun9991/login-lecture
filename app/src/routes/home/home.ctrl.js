@@ -9,6 +9,9 @@ const output = {
   login: (req, res) => {
     res.render('home/login');
   },
+  register: (req, res) => {
+    res.render('home/register');
+  },
 };
 
 const process = {
@@ -26,7 +29,7 @@ module.exports = {
 
 /* output
   ejs파일을 랜더링
-*/ 
+*/
 
 /* process
   1. User class를 클라이언트가 전달한 req.body를 넣어서 인스턴스
@@ -35,7 +38,6 @@ module.exports = {
     response(success 여부)를 User에서 전달(return) 받음
 
   3.json형태로 클라이언트에게 전달
-*/ 
+*/
 
 // 컨트롤러 분리
-
