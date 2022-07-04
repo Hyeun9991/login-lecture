@@ -6,7 +6,7 @@ class UserStorage {
   // Users login()에서 받은 유저 정보를 db에 접근한 후 반환 | 로그인 로직
   static getUserInfo(id) {
     return new Promise((resolve, reject) => {
-      const query = 'select * from abc where id = ?;';
+      const query = 'select * from users where id = ?;';
       db.query(query, [id], (err, data) => {
         if (err) reject(`${err}`);
         else resolve(data[0]);
