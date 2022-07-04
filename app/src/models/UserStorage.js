@@ -6,10 +6,11 @@ class UserStorage {
   // Users login()에서 받은 유저 정보를 db에 접근한 후 반환 | 로그인 로직
   static getUserInfo(id) {
     return new Promise((resolve, reject) => {
-      const query = 'select * from users where id = ?;';
+      const query = 'select * from abc where id = ?;';
       db.query(query, [id], (err, data) => {
         if (err) reject(`${err}`);
-        resolve(data[0]);
+        else resolve(data[0]);
+        // resolve와 reject가 같이 있으면 resolve가 반환이 됨
       });
     });
   }
@@ -17,13 +18,13 @@ class UserStorage {
   // Users register()에서 받은 유저 정보를 db에 저장 | 회원가입 로직
   static async save(userInfo) {
     return new Promise((resolve, reject) => {
-      const query = 'insert into users(id, name, psword) values(?, ?, ?);';
+      const query = 'insert into abc(id, name, psword) values(?, ?, ?);';
       db.query(
         query,
         [userInfo.id, userInfo.name, userInfo.psword],
         (err) => {
           if (err) reject(`${err}`);
-          resolve({ success: true });
+          else resolve({ success: true });
         }
       );
     });

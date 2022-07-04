@@ -19,8 +19,8 @@ class User {
         return { success: false, msg: '비밀번호가 틀렸습니다.'};
       }
       return { success: false, msg: '존재하지 않는 아이디입니다.'};
-    } catch (err) {
-      return { success: false, msg: err };
+    } catch (err) { // info로그가 아니라 에러로그로 출력
+      return { success: false, err };
     }
   } 
   
@@ -30,7 +30,7 @@ class User {
       const response = await UserStorage.save(client); // 데이터 저장
       return response;
     } catch (err) { 
-      return { success: false, msg: err };
+      return { success: false, err };
     }
   }
 }
